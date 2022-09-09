@@ -6,7 +6,7 @@ import com.example.spring_team12_withfe.dto.response.ResponseDto;
 import com.example.spring_team12_withfe.domain.Heart;
 import com.example.spring_team12_withfe.domain.Member;
 import com.example.spring_team12_withfe.jwt.TokenProvider;
-import com.example.spring_team12_withfe.repository.Book_ReviewRepository;
+import com.example.spring_team12_withfe.repository.BookReviewRepository;
 import com.example.spring_team12_withfe.repository.HeartRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ import java.util.Optional;
 @Service
 public class HeartService {
 
-    private final Book_ReviewRepository book_reviewRepository;
+    private final BookReviewRepository book_reviewRepository;
     private final HeartRepository heartRepository;
     private final TokenProvider tokenProvider;
 

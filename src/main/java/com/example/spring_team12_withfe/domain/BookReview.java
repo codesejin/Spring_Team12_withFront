@@ -1,14 +1,12 @@
 package com.example.spring_team12_withfe.domain;
 
-import com.example.spring_team12_withfe.dto.request.Book_ReviewRequestDto;
+import com.example.spring_team12_withfe.dto.request.BookReviewRequestDto;
 import com.example.spring_team12_withfe.dto.request.ReviewRequestDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import lombok.*;
 
 
 import javax.persistence.*;
@@ -58,7 +56,7 @@ public class BookReview extends Timestamped {
     private List<Heart> heart;
 
 
-    public BookReview(Book_ReviewRequestDto requestDto){
+    public BookReview(BookReviewRequestDto requestDto){
         this.review = requestDto.getReview();
     }
     public void update(ReviewRequestDto requestDto){

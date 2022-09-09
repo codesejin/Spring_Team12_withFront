@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Getter
-public class Book_ReviewRequestDto {
+public class BookReviewRequestDto {
     private Long id;
     private String thumbnail;
     private String title;

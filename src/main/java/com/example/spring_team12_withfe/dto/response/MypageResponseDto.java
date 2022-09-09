@@ -10,5 +10,5 @@ import java.util.List;
 @Getter
 public class MypageResponseDto {
     private String username;
-    private List<Book_ReviewResponseDto> Book_List;
+    private List<BookReviewResponseDto> Book_List;
 }

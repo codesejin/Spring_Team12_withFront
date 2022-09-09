@@ -1,6 +1,5 @@
 package com.example.spring_team12_withfe.dto.response;
 
-import com.example.spring_team12_withfe.domain.Heart;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -10,7 +9,7 @@ import java.util.List;
 
 @Builder
 @Getter
-public class Book_ReviewResponseDto {
+public class BookReviewResponseDto {
     private Long id;
     private String thumbnail;
     private String title;

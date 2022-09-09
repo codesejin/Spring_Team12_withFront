@@ -8,7 +8,7 @@ import com.example.spring_team12_withfe.dto.request.CommentReqDto;
 import com.example.spring_team12_withfe.dto.response.CommentResponseDto;
 import com.example.spring_team12_withfe.domain.BookReview;
 import com.example.spring_team12_withfe.jwt.TokenProvider;
-import com.example.spring_team12_withfe.repository.Book_ReviewRepository;
+import com.example.spring_team12_withfe.repository.BookReviewRepository;
 
 import com.example.spring_team12_withfe.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class CommentService {
-    private final Book_ReviewRepository book_reviewRepository;
+    private final BookReviewRepository book_reviewRepository;
 
     private final CommentRepository commentRepository;
 

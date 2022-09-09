@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class B_ResponseDto<T> { //T가 아니고 A/B어떤거든 상관없음 제네릭임을 선언
+public class BResponseDto<T> { //T가 아니고 A/B어떤거든 상관없음 제네릭임을 선언
     private boolean success;
     private T books; //제네릭의 변수 선언방법
     private Error error;
@@ -18,8 +18,8 @@ public class B_ResponseDto<T> { //T가 아니고 A/B어떤거든 상관없음 �
     }
 
 
-    public static <T> B_ResponseDto<T> success(T books) {
+    public static <T> BResponseDto<T> success(T books) {
 
-        return new B_ResponseDto<>(true, books, null);
+        return new BResponseDto<>(true, books, null);
     }
 }

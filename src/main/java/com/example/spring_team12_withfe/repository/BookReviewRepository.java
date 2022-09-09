@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-public interface Book_ReviewRepository extends JpaRepository<BookReview,Long> {
+public interface BookReviewRepository extends JpaRepository<BookReview,Long> {
     Optional<BookReview> findById(Long id);
 
     List<BookReview> findByMemberIdAndTitleAndAuthor(Long member_id, String title, String Author);

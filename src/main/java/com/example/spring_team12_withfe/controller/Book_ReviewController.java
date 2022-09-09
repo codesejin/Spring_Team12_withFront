@@ -1,7 +1,7 @@
 package com.example.spring_team12_withfe.controller;
-import com.example.spring_team12_withfe.dto.response.B_ResponseDto;
+import com.example.spring_team12_withfe.dto.response.BResponseDto;
 import com.example.spring_team12_withfe.dto.response.ResponseDto;
-import com.example.spring_team12_withfe.dto.request.Book_ReviewRequestDto;
+import com.example.spring_team12_withfe.dto.request.BookReviewRequestDto;
 import com.example.spring_team12_withfe.dto.request.ReviewRequestDto;
 import com.example.spring_team12_withfe.service.Book_ReviewService;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +16,8 @@ public class Book_ReviewController {
     private final Book_ReviewService book_reviewService;
 
     @GetMapping("/home")
-    public B_ResponseDto<?> getAllbook_review(@RequestParam("page")int page,
-                                              @RequestParam("size")int size){
+    public BResponseDto<?> getAllbook_review(@RequestParam("page")int page,
+                                             @RequestParam("size")int size){
         return book_reviewService.getAllbook_review(page, size);
     }
 
@@ -27,7 +27,7 @@ public class Book_ReviewController {
     }
 
     @PostMapping("/auth/review")
-    public ResponseDto<?> createReview(@RequestBody Book_ReviewRequestDto requestDto, HttpServletRequest request){
+    public ResponseDto<?> createReview(@RequestBody BookReviewRequestDto requestDto, HttpServletRequest request){
         return book_reviewService.create(requestDto,request);
     }
 

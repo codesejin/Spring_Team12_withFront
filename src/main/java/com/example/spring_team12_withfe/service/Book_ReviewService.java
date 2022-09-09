@@ -4,10 +4,10 @@ import com.example.spring_team12_withfe.domain.Comment;
 import com.example.spring_team12_withfe.domain.Member;
 import com.example.spring_team12_withfe.domain.BookReview;
 import com.example.spring_team12_withfe.dto.response.*;
-import com.example.spring_team12_withfe.dto.request.Book_ReviewRequestDto;
+import com.example.spring_team12_withfe.dto.request.BookReviewRequestDto;
 import com.example.spring_team12_withfe.dto.request.ReviewRequestDto;
 import com.example.spring_team12_withfe.jwt.TokenProvider;
-import com.example.spring_team12_withfe.repository.Book_ReviewRepository;
+import com.example.spring_team12_withfe.repository.BookReviewRepository;
 import com.example.spring_team12_withfe.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -24,21 +24,21 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class Book_ReviewService {
-    private final Book_ReviewRepository book_reviewRepository;
+    private final BookReviewRepository book_reviewRepository;
 
     private final CommentRepository commentRepository;
     private final TokenProvider tokenProvider;
 
 
     @Transactional
-    public B_ResponseDto<?> getAllbook_review(int page, int size){
+    public BResponseDto<?> getAllbook_review(int page, int size){
         Pageable pageable = PageRequest.of(page, size);
         Page<BookReview> bookReviews = book_reviewRepository.findAllByOrderByHeartCntDesc(pageable);
-        List<Book_ReviewResponseDto> book_reviewResponseDto = new ArrayList<>();
+        List<BookReviewResponseDto> book_reviewResponseDto = new ArrayList<>();
 
         for(BookReview book_review : bookReviews){
             book_reviewResponseDto.add(
-                    Book_ReviewResponseDto.builder()
+                    BookReviewResponseDto.builder()
                             .id(book_review.getId())
                             .username(book_review.getMember().getUsername())
                             .thumbnail(book_review.getThumbnail())
@@ -52,7 +52,7 @@ public class Book_ReviewService {
                             .build()
             );
         }
-        return B_ResponseDto.success(book_reviewResponseDto);
+        return BResponseDto.success(book_reviewResponseDto);
     }
 
 
@@ -81,7 +81,7 @@ public class Book_ReviewService {
 
 
         return ResponseDto.success(
-                Book_ReviewResponseDto.builder()
+                BookReviewResponseDto.builder()
                         .id(book_review.getId())
                         .username(book_review.getMember().getUsername())
                         .thumbnail(book_review.getThumbnail())
@@ -98,7 +98,7 @@ public class Book_ReviewService {
     }
 
     @Transactional
-    public ResponseDto<?> create(Book_ReviewRequestDto requestDto, HttpServletRequest request) {
+    public ResponseDto<?> create(BookReviewRequestDto requestDto, HttpServletRequest request) {
         Member member = validateMember(request);
 
         if (member == null) {
@@ -128,7 +128,7 @@ public class Book_ReviewService {
         book_reviewRepository.save(book_review);
 
         return ResponseDto.success(
-                Book_ReviewResponseDto.builder()
+                BookReviewResponseDto.builder()
                         .id(book_review.getId())
                         .thumbnail(book_review.getThumbnail())
                         .title(book_review.getTitle())

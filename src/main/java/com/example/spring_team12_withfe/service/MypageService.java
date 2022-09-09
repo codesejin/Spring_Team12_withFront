@@ -2,10 +2,10 @@ package com.example.spring_team12_withfe.service;
 
 import com.example.spring_team12_withfe.domain.BookReview;
 import com.example.spring_team12_withfe.domain.Member;
-import com.example.spring_team12_withfe.dto.response.Book_ReviewResponseDto;
+import com.example.spring_team12_withfe.dto.response.BookReviewResponseDto;
 import com.example.spring_team12_withfe.dto.response.MypageResponseDto;
 import com.example.spring_team12_withfe.jwt.TokenProvider;
-import com.example.spring_team12_withfe.repository.Book_ReviewRepository;
+import com.example.spring_team12_withfe.repository.BookReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,7 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class MypageService {
-    private final Book_ReviewRepository book_reviewRepository;
+    private final BookReviewRepository book_reviewRepository;
     private final TokenProvider tokenProvider;
 
 
@@ -33,10 +33,10 @@ public class MypageService {
         Pageable pageable = PageRequest.of(page, size);
         Page<BookReview> book_reviewList = book_reviewRepository.findByMemberId(member.getId(),pageable);
 
-        List<Book_ReviewResponseDto> book_review_List = new ArrayList<>();
+        List<BookReviewResponseDto> book_review_List = new ArrayList<>();
 
         for(BookReview book_review : book_reviewList){
-            book_review_List.add(Book_ReviewResponseDto.builder()
+            book_review_List.add(BookReviewResponseDto.builder()
                     .id(book_review.getId())
                     .username(member.getUsername())
                     .thumbnail(book_review.getThumbnail())
