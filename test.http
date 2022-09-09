@@ -1,0 +1,38 @@
+POST http://localhost:8080/api/member/review
+Content-Type: application/json
+Authorization : Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWppbjEyMyIsImF1dGgiOiJST0xFX01FTUJFUiIsImV4cCI6MTY2MjM3NDcwNX0.lUxvjyzfRCLKA9Z-KHB43GE1v9Ih4mQJPemtR4Jb3rM
+Refresh-Token : eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjI5Nzc3MDV9.MESIFVaUKbQHrHUV3sV0YsKI1qzGQJopGQqyWejrB-4
+
+{
+  "image" : "test",
+  "title" : "test",
+  "author" : "test",
+  "publisher" : "test",
+  "review" : "testreview"
+}
+
+###
+POST http://localhost:8080/api/issue/token
+Content-Type: application/json
+Refresh-Token :  eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWppbjEyIiwiZXhwIjoxNjYyMzQwOTY1LCJpYXQiOjE2NjIzNDA5MzV9.vaYDsS-uoZ2BOtc7ta4sey3vwU5kC3cVG7goZl7W9No
+{}
+
+###
+POST http://localhost:8080/api/member/login
+Content-Type: application/json
+
+{
+  "username" : "sejin",
+  "password" : "sejin"
+}
+
+###
+POST http://localhost:8080/api/member/signup
+Content-Type: application/json
+
+{
+  "username" : "sejin12",
+  "password" : "sejin12"
+}
+
+###
